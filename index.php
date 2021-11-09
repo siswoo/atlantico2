@@ -7,251 +7,121 @@ session_destroy();
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--<link rel="icon" type="image/png" href="img/favicon1.webp">-->
     <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/validaciones.css">
-    <title>Camaleon Sistem</title>
+    <link rel="stylesheet" href="css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="resources/signature/docs/css/signature-pad.css">
+    <title>AtlanticoV2</title>
   </head>
+
   <style type="text/css">
-  	#submit{
-  		background-color: #A67D4C!important; 
-  		border-color: #A67D4C;
-  	}
-
-  	#submit:hover{
-  		background-color: #735735 !important; 
-  		border-color: #735735 !important;
-  		color: white !important;
-  	}
-
-  	body{
-  		background-image: url("img/logos/FONDO APP.png");
-  	}
-
-  	.btn-info{
-  		background-color: #A9814F !important;
-  		border-color: #A9814F !important;
-  	}
-
-  	.btn-primary{
-  		background-color: #A9814F !important;
-  		border-color: #A9814F !important;
+  	.error{
+  		color: red;
+  		font-size: 14px;
   	}
   </style>
+
 <body>
 
-	<div class="col-12 text-center" style="margin-top: 4rem;">
-		<img src="img/logos/logo_index1.png" style="width: 200px;">
-	</div>
+<?php
+$ubicacion='Inicio';
+include("script/conexion.php");
+include("header.php");
+?>
 
+<form id="formulario1" method="POST" action="#">
+	<input type="hidden" id="condicion" name="condicion" value="login1">
     <div class="seccion1" style="margin-top: 3rem;">
-	    <div class="row">
-		    <div class="container">
-			    <form action="#" method="POST" id="formulario1" style="margin-left: 30%; margin-right: 30%;">
-				    <div class="col-12" class="text-center">
-				    	<p class="text-center titulo1">Datos de Ingreso</p>
-				    </div>
-				    <div class="form-group form-check">
-					    <label for="usuario">Correo</label>
-					    <input type="text" class="form-control" name="usuario" id="usuario" minlength="4" required>
-				    </div>
-				    <div class="form-group form-check">
-					    <label for="clave">Clave</label>
-					    <input type="password" class="form-control" name="clave" id="clave" minlength="4" required>
-				    </div>
-				    <div class="form-group form-check">
-				    	<label for="estatus">Módulo</label>
-					    <select class="form-control" id="estatus" name="estatus" required>
-					    	<option value="Modelo">Modelo</option>
-					    	<option value="Nomina">Nómina</option>
-					    	<option value="Pasantia">Pasantia</option>
-					    	<option value="Satelite">Satelite</option>
-					    </select>
-				    </div>
-					<div class="row">
-						<div class="col-12 form-group form-check text-center">
-							<button type="submit" id="submit" class="btn btn-success mr-3">Ingresar</button>
-							<button type="button" data-toggle="modal" data-target="#exampleModal1" class="btn btn-primary ml-3">Recuperar Contraseña</button>
-						</div>
-					</div>
-			    </form>
-
-		    </div>
-	    </div>
+      <div class="row">
+        <div class="container">
+          <div class="col-12" class="text-center">
+            <p class="text-center" style="font-weight: bold; font-size: 35px; text-transform: uppercase;">Datos de Ingreso</p>
+          </div>
+          <div class="form-group form-check">
+            <label for="usuario">Usuario</label>
+            <input type="text" class="form-control" name="usuario" id="usuario" placeholder="" value="" autocomplete="off" required>
+            <div class="ml-1 mt-1 error d-none" id="error1">Este campo no debe estar vacio.</div>
+            </div>
+          <div class="form-group form-check">
+            <label for="clave">Clave</label>
+            <input type="password" class="form-control" name="clave" id="clave" placeholder="" value="" autocomplete="off" required>
+            <div class="ml-1 mt-1 error d-none" id="error2"></div>
+            <small id="emailHelp" class="form-text text-muted">Los datos de ingreso son totalmente confidenciales.</small>
+          </div>
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <button type="submit" id="submit" class="btn btn-success">INGRESAR</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-
-    <!-- Modal Recuperar Registro -->
-	<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<form action="#" method="POST" id="form_modal_recuperar1">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLabel" style="color:black;">Nuevo Registro</h5>
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-					<div class="modal-body">
-					    <div class="row">
-						    <div class="col-12 form-group form-check">
-							    <label for="recovery_correo" style="color:black;">Correo electrónico</label>
-							    <input type="email" id="recovery_correo" name="recovery_correo" class="form-control" required>
-						    </div>
-						    <div class="col-12 form-group form-check">
-							    <label for="recovery_estatus" style="color:black;">Modulo</label>
-							    <select class="form-control" name="recovery_estatus" id="recovery_estatus" required>
-							    	<option value="Modelo">Modelo</option>
-							    	<option value="Nomina">Nómina</option>
-							    	<option value="Empresa">Empresa</option>
-							    	<option value="Pasantia">Pasantia</option>
-							    	<option value="Satelite">Satelite</option>
-							    	<option value="Aliados">Aliados</option>
-							    </select>
-						    </div>
-						    <div class="col-12 text-center" style="font-size: 14px;color:blue;font-weight: bold;">
-						    	La nueva clave le será enviada a su correo electrónico
-						    </div>
-						</div>
-					</div>
-					<div class="modal-footer">
-				        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-				        <button type="submit" class="btn btn-success" id="submit_guardar1">Recuperar</button>
-			      	</div>
-		      	</form>
-	    	</div>
-	  	</div>
-	</div>
-<!-- FIN Modal Recuperar Registro -->
-
-<form action="welcome/index.php" id="formulario2" method="POST">
-	<input type="hidden" value="" id="usuario_id" name="usuario_id">
-	<input type="hidden" value="" id="usuario_estatus" name="usuario_estatus">
 </form>
 
-<form action="pasantias/index.php" id="formulario3" method="POST">
-	<input type="hidden" value="" id="usuario_id2" name="usuario_id2">
-	<input type="hidden" value="" id="usuario_estatus2" name="usuario_estatus2">
-</form>
+<?php
+include("footer.php");
+?>
 
+<!--HIDDENS-->
+<input type="hidden" id="enviar" name="enviar" value="0">
+<!----------->
 </body>
 </html>
 
 <script src="js/jquery-3.5.1.min.js"></script>
+<script type="text/javascript" src="js/popper.js"></script>
 <script src="js/bootstrap.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+<script src="resources/signature/docs/js/signature_pad.umd.js"></script>
 
 <script>
-
-	$(document).ready(function() {
-		/*******************PRUEBAS*********************/
-		//$('#usuario').val("juanmaldonado.co@gmail.com");
-		$('#usuario').val("programador@camaleonmg.com");
-		$('#clave').val("2421187");
-		$('#estatus').val("Nomina");
-		/***********************************************/
+	
+	$('#carouselExampleIndicators2').carousel({
+  		interval: 2000
 	});
 
-	$('#myModal').on('shown.bs.modal', function () {
-	  	$('#myInput').trigger('focus')
-	});
-
-	$("#formulario1").on("submit", function(e){
+  $("#formulario1").on("submit", function(e){
 		e.preventDefault();
 		var f = $(this);
 		var usuario = $('#usuario').val();
 		var clave = $('#clave').val();
-		var estatus = $('#estatus').val();
+
 		$.ajax({
-	        url: 'script/crud_usuarios.php',
-	        type: 'POST',
-	        dataType: "JSON",
-	        data: {
-				"usuario": usuario,
-				"clave": clave,
-				"estatus": estatus,
-				"condicion": "login1",
+			type: 'POST',
+			url: 'script/crud_usuarios.php',
+			data: $('#formulario1').serialize(),
+			dataType: "JSON",
+
+			success: function(respuesta) {
+				console.log(respuesta);
+
+				if(respuesta["estatus"]=="error"){
+					Swal.fire({
+						position: 'center',
+						icon: 'error',
+						title: respuesta["msg"],
+						showConfirmButton: true,
+						timer: 3000
+					})
+					return false;
+				}
+
+				if(respuesta["estatus"]=="ok"){
+					if(respuesta["permisos"]==1){
+						//$("#formulario1").attr("action","admin/index.php");
+						window.location.href = "admin/index.php";
+					}else{
+						//$("#formulario1").attr("action","index2.php");
+						window.location.href = "index2.php";
+					}
+				}
+
 			},
 
-	        beforeSend: function (){},
-
-	        success: function(respuesta){
-	        	console.log(respuesta);
-
-	        	if(estatus=='Modelo'){
-	        		if(respuesta["respuesta"]=='error'){
-	        			Swal.fire({
-									title: 'Error',
-									text: respuesta["msg"],
-									icon: 'error',
-									position: 'center',
-									showConfirmButton: true,
-								});
-								return false;
-	        		}
-	        	}
-
-	        	if(respuesta["estatus"]=="sin resultados"){
-	        		Swal.fire({
-								title: 'Error',
-								text: "Datos Incorrectos!",
-								icon: 'error',
-								position: 'center',
-								showConfirmButton: false,
-								timer: 2000
-							});
-	        	}else if(respuesta["estatus"]!="sin resultados" && respuesta["estatus"]=="Pasantia"){
-	        		$('#usuario_id2').val(respuesta["usuario_id"]);
-	        		$('#usuario_estatus2').val(respuesta["estatus"]);
-	        		$('#formulario3').submit();
-	        	}else{
-	        		$('#usuario_id').val(respuesta["usuario_id"]);
-	        		$('#usuario_estatus').val(respuesta["estatus"]);
-	        		$('#formulario2').submit();
-	        	}
-	        },
-
-	        error: function(respuesta){
-	           	console.log(respuesta['responseText']);
-	        }
-	    });
-	});
-
-	$("#form_modal_recuperar1").on("submit", function(e){
-		e.preventDefault();
-		var f = $(this);
-		var recovery_correo = $('#recovery_correo').val();
-		var recovery_estatus = $('#recovery_estatus').val();
-		$.ajax({
-	        url: '../script/crud_usuarios.php',
-	        type: 'POST',
-	        data: {
-				"recovery_correo": recovery_correo,
-				"recovery_estatus": recovery_estatus,
-				"condicion": "recuperar_contraseña1",
-			},
-
-	        beforeSend: function (){},
-
-	        success: function(response){
-	        	console.log(response);
-	        	Swal.fire({
-					title: 'Correcto!',
-					text: "Correo enviado satisfactoriamente",
-					icon: 'success',
-					position: 'center',
-					showConfirmButton: false,
-					timer: 2000
-				});
-
-				$("#exampleModal1").modal('hide');
-				$('#exampleModal1').removeClass('modal-open');
-				$('.modal-backdrop').remove();
-	        },
-
-	        error: function(response){
-	           	console.log(response['responseText']);
-	        }
-	    });
+			error: function(respuesta) {
+				console.log(respuesta['responseText']);
+			}
+		});
 	});
 
 </script>

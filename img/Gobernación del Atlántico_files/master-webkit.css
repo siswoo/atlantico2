@@ -1,0 +1,28 @@
+/**
+* @version   $Id: master-webkit.css 26153 2015-01-27 16:27:32Z james $
+* @author    RocketTheme http://www.rockettheme.com
+* @copyright Copyright (C) 2007 - 2019 RocketTheme, LLC
+* @license   http://www.rockettheme.com/legal/license.php RocketTheme Proprietary Use License
+*/
+
+.gf-menu.l1 > li > .item.icon [class^="icon-"]:before, .gf-menu.l1 > li > .item.icon [class*=" icon-"]:before {
+	top: 14px;
+}
+.gf-menu.l1 > li > .item.icon .menu-text {
+	top: 23px;
+}	
+
+.sprocket-strips-container > li {
+	margin: 0 -0.01% !important;
+}
+
+.fp-roksprocket-strips-mainbottom .sprocket-strips-container > li {
+	position: relative;
+	z-index: 10;
+}	
+.fp-roksprocket-strips-mainbottom .sprocket-strips-container > li:hover {
+	z-index: 100;
+}
+.sprocket-strips .sprocket-strips-pagination ul {
+	margin: 0 0 0 25px;
+}
