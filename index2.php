@@ -208,7 +208,7 @@ while($row1 = mysqli_fetch_array($proceso1)){
 											$variable_id = $row6["id"];
 											$variable_nombre = $row6["nombre"];
 											echo '
-												<option value="'.$variable_id.'">'.$variable_nombre.'</option>
+												<option value="'.$variable_nombre.'">'.$variable_nombre.'</option>
 											';
 										}
 

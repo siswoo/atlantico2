@@ -59,7 +59,7 @@ if(@$_SESSION['atlantico2_id']==''){?>
                                     </div>
                                     <div class="stat-content">
                                         <div class="text-left dib">
-                                            <div class="stat-text"><span class="count">0</span>$</div>
+                                            <div class="stat-text">$<span class="count">240.000</span></div>
                                             <div class="stat-heading">Ganancias</div>
                                         </div>
                                     </div>
@@ -77,7 +77,7 @@ if(@$_SESSION['atlantico2_id']==''){?>
                                     </div>
                                     <div class="stat-content">
                                         <div class="text-left dib">
-                                            <div class="stat-text"><span class="count">0</span></div>
+                                            <div class="stat-text"><span class="count">1</span></div>
                                             <div class="stat-heading">Ventas</div>
                                         </div>
                                     </div>
@@ -95,7 +95,7 @@ if(@$_SESSION['atlantico2_id']==''){?>
                                     </div>
                                     <div class="stat-content">
                                         <div class="text-left dib">
-                                            <div class="stat-text"><span class="count">0</span></div>
+                                            <div class="stat-text"><span class="count">3</span></div>
                                             <div class="stat-heading">Plantillas</div>
                                         </div>
                                     </div>
@@ -113,7 +113,7 @@ if(@$_SESSION['atlantico2_id']==''){?>
                                     </div>
                                     <div class="stat-content">
                                         <div class="text-left dib">
-                                            <div class="stat-text"><span class="count">0</span></div>
+                                            <div class="stat-text"><span class="count">1</span></div>
                                             <div class="stat-heading">Clientes</div>
                                         </div>
                                     </div>

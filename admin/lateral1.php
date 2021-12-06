@@ -17,6 +17,12 @@
                             <li><i class="fa fa-bars"></i><a href="opciones.php">Opciones</a></li>
                         </ul>
                     </li>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>Exportables</a>
+                        <ul class="sub-menu children dropdown-menu">                            
+                            <li><i class="fa fa-id-badge"></i><a href="exportar1.php">Encuestas</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </nav>
